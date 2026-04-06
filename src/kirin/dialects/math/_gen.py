@@ -32,6 +32,8 @@ def builtin_math_functions():
             # 3.10 compat
             "cbrt",
             "exp2",
+            # 3.13 compat
+            "fma",
         ):
             continue
 
@@ -140,7 +142,7 @@ with open(os.path.join(os.path.dirname(__file__), "__init__.py"), "w") as f:
             ret_type = "float"
         f.write(textwrap.dedent(f"""
         @lowering.wraps(stmts.{name})
-        def {name}({", ".join(f"{arg}: {ret_type}" for arg in sig.parameters.keys())}) -> {ret_type}: ...
+        def {name}({", ".join(f"{arg}: float" for arg in sig.parameters.keys())}) -> {ret_type}: ...
         """))
     f.write("\n")
 

@@ -143,14 +143,6 @@ def test_floor():
     assert (floor_func(0.42) - truth) < 1e-6
 
 @basic
-def fma_func(x, y, z):
-    return math.fma(x, y, z)
-
-def test_fma():
-    truth = pymath.fma(0.42, 0.42, 0.42)
-    assert (fma_func(0.42, 0.42, 0.42) - truth) < 1e-6
-
-@basic
 def fmod_func(x, y):
     return math.fmod(x, y)
 

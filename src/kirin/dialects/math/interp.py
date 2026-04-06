@@ -110,12 +110,6 @@ class MathMethodTable(MethodTable):
         return (math.floor(values[0]),)
 
 
-    @impl(stmts.fma)
-    def fma(self, interp, frame: Frame, stmt: stmts.fma):
-        values = frame.get_values(stmt.args)
-        return (math.fma(values[0], values[1], values[2]),)
-
-
     @impl(stmts.fmod)
     def fmod(self, interp, frame: Frame, stmt: stmts.fmod):
         values = frame.get_values(stmt.args)

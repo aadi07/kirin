@@ -160,17 +160,6 @@ class floor(ir.Statement):
     result: ir.ResultValue = info.result(types.Float)
 
 @statement(dialect=dialect)
-class fma(ir.Statement):
-    """fma statement, wrapping the math.fma function
-    """
-    name = "fma"
-    traits = frozenset({ir.Pure(), lowering.FromPythonCall()})
-    x : ir.SSAValue = info.argument(types.Float)
-    y : ir.SSAValue = info.argument(types.Float)
-    z : ir.SSAValue = info.argument(types.Float)
-    result: ir.ResultValue = info.result(types.Float)
-
-@statement(dialect=dialect)
 class fmod(ir.Statement):
     """fmod statement, wrapping the math.fmod function
     """
