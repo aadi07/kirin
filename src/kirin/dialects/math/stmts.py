@@ -66,7 +66,7 @@ class ceil(ir.Statement):
     name = "ceil"
     traits = frozenset({ir.Pure(), lowering.FromPythonCall()})
     x : ir.SSAValue = info.argument(types.Float)
-    result: ir.ResultValue = info.result(types.Float)
+    result: ir.ResultValue = info.result(types.Int)
 
 @statement(dialect=dialect)
 class copysign(ir.Statement):
@@ -157,7 +157,7 @@ class floor(ir.Statement):
     name = "floor"
     traits = frozenset({ir.Pure(), lowering.FromPythonCall()})
     x : ir.SSAValue = info.argument(types.Float)
-    result: ir.ResultValue = info.result(types.Float)
+    result: ir.ResultValue = info.result(types.Int)
 
 @statement(dialect=dialect)
 class fmod(ir.Statement):
@@ -332,7 +332,7 @@ class trunc(ir.Statement):
     name = "trunc"
     traits = frozenset({ir.Pure(), lowering.FromPythonCall()})
     x : ir.SSAValue = info.argument(types.Float)
-    result: ir.ResultValue = info.result(types.Float)
+    result: ir.ResultValue = info.result(types.Int)
 
 @statement(dialect=dialect)
 class ulp(ir.Statement):

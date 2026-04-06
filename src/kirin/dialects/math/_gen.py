@@ -80,6 +80,8 @@ with open(os.path.join(os.path.dirname(__file__), "stmts.py"), "w") as f:
         )
         if "is" in name:
             ret_type = "types.Bool"
+        elif name in {"trunc", "ceil", "floor"}:
+            ret_type = "types.Int"
         else:
             ret_type = "types.Float"
         f.write(textwrap.dedent(f"""
